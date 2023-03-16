@@ -1,0 +1,53 @@
+package basic;
+/*
+ * Find the duplicate value using the for loop only
+ * 
+*/
+ public class javamain{
+
+	public static void main(String[] args) {
+		int arr[]= {1,1,7,8,1,2,3,2,2};
+		int len=arr.length;
+		int temp[];
+		temp=removeDup(arr,len);
+		for(int i:temp) {
+			if(i==0)continue;
+			System.out.print(i+" ");
+		}
+	}
+	public static int[] removeDup(int arr[],int len) {
+		int count=0;
+		
+		int[] temp=new int[len];
+		for(int i=0;i<len;i++) {
+			int c=1;
+			for(int j=0;j<len;j++) {
+				
+				if(arr[i]==arr[j])
+				c++;
+			 if(c>1) {
+				 boolean status=true;
+				 for(int k=0;k<len;k++) {
+						if(temp[k]==arr[i]) {
+							status=false;
+							break;
+						}
+						
+					}
+				 if(status==true)
+					temp[count++]=arr[j];
+			 }
+			
+				
+			}
+		 
+		} 
+		return temp;
+	}
+	
+	
+		
+}
+/*Output:
+ * 1 7 8 2 3 
+*/
